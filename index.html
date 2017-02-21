@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en" ng-app="invoiceData">
+<head>
+    <meta charset="utf-8">
+    <title>Invoicing</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  </head>
+  <body ng-controller="MasterDetail">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+            <div class="heading">
+                <span>All invoices - 2016</span>
+                <span class="selector"><img src="images/dots.png"></span>
+            </div>
+            <div id="master-view">
+            <table class="table table-hover">
+            <thead>
+            <tr>
+              <th colspan="5">Invoices</th>
+            </tr>
+            <tr>
+              <th ng-click="sort('type')">Type
+                <span class="glyphicon sort-icon" ng-show="sortKey=='type'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+              </th>
+              <th ng-click="sort('account_name')">Account Name
+                <span class="glyphicon sort-icon" ng-show="sortKey=='account_name'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+              </th>
+              <th ng-click="sort('invoice_status')">Status
+                <span class="glyphicon sort-icon" ng-show="sortKey=='invoice_status'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+              </th>
+              <th ng-click="sort('currency')">Currency
+                <span class="glyphicon sort-icon" ng-show="sortKey=='currency'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+              </th>
+              <th ng-click="sort('balance')">Balance
+                <span class="glyphicon sort-icon" ng-show="sortKey=='balance'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-class="{selected_record: Invoice.account_name == selectedInvoice}" ng-repeat='Invoice in listOfInvoices|orderBy:sortKey:reverse|filter:search' ng-click="selectInvoice(Invoice);">
+              <td>{{Invoice.type}}</td>
+              <td>{{Invoice.account_name}}</td>
+              <td>{{Invoice.invoice_status}}</td>
+              <td>{{Invoice.currency}}</td>
+              <td>$ {{Invoice.balance}}</td>
+            </tr>
+          </tbody>
+        </table>
+        </div>
+        </div>
+
+       <div class="col-md-4">
+       <div class="rectangle-4"></div>
+        <div id="detail-view">
+        <div class=".col-xs-6 .col-md-4"><img src="images/trump-job-creator-o-pt.png" class="img-responsive" alt="Responsive image"></div>
+          <div id="Order_{{Order.id}}" ng-repeat="Invoice in InvoiceDetail" ng-show="Invoice.account_name==selectedInvoice">
+          <h4>{{Invoice.account_name}}</h4>
+          <table class="table-detail">
+            <tr>
+              <th>TYPE</th> 
+              <th>ACCOUNT NAME</th>             
+            </tr>
+            <tr class="row-height">
+              <td>{{Invoice.type}}</td>
+              <td>{{Invoice.account_name}}</td>
+            </tr>
+            <tr>
+              <th>STATUS</th> 
+              <th>CURRENCY</th>             
+            </tr>
+            <tr class="row-height">
+              <td>{{Invoice.invoice_status}}</td>
+              <td>{{Invoice.currency}}</td>
+            </tr>
+            <tr>
+              <th>BALANCE</th> 
+              <th>NOTES</th>             
+            </tr>
+            <tr>
+              <td>$ {{Invoice.balance}}</td>
+              <td>Lorem ipsum dolor sit emit, <br> viris blandet mediocream id</td>
+            </tr>
+        </table>
+        </div>
+        </div>        
+    </div>
+    </div>
+  </div>
+  <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src="app/MasterDetail.js"></script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+.sort-icon {
+    font-size: 9px;
+    margin-left: 5px;
+}
+.table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
+    border-top: 1px solid #fff !important;
+    cursor:pointer;
+}
+.table-detail{
+    width: 410px;
+    font-size: 9px;
+    color: #6a6a6a;
+    margin: 13px 0 0 25px;
+}
+.table-detail th{
+    font-size: 7px;
+}
+.table-detail td{
+    vertical-align: top;
+}
+.row-height{
+    height: 21px;
+}
+h4{
+    font-family: Roboto;
+    color: #0277ff;
+    margin: 20px 0 0 25px;
+}
+.heading {
+    font-family: Roboto;
+    font-size: 28px;
+    font-weight: 500;
+    color: #0277ff;
+    padding: 25px 30px 21px 0px;
+}
+.selector{
+    margin-left: 454px;
+}
+#master-view
+{
+    width: 760px;
+    height: 530px;
+    margin-right: 5px;
+    overflow-y: auto;
+    float: left;
+    font-family: Roboto;
+    font-size: 11px;
+    color: #6a6a6a;
+    border: groove 1px;
+}
+#detail-view
+{
+    width: 300px;
+    height: 300px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 24px 0 rgba(0, 0, 0, 0.5);
+    padding: 0;
+    margin: 140px 0 0 30px;
+    overflow-y: auto;
+}
+.selected_record {
+    /*  If this invoice record has been selected, we'll display a Blue vertical bar next to it */
+    border-left: 2px solid #0277ff;
+    background-color: #f5f5f5;
+}
+.col-md-4{
+    height: 642px !important;
+    background: #0177fe !important;
+}
+.rectangle-4 {
+    width: 60px;
+    height: 61px;
+    background-color: #ffffff;
+    background-image: url('../images/icon.png');
+    position: relative;
+    margin: 35px 0 0 290px;
+}
+
+
